@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: adapter-example-health
+spec:
+  containers:
+  - image: mysql
+    name: mysql
+  - image: tryuu/monitor-mysql # データベースのヘルスチェック(監視)を簡単に自動化できる
+    name: adapter
