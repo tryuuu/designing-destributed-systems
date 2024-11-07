@@ -1,0 +1,14 @@
+# <StatefulSetのPod名>.<Service名>というDNSエントリが作成される. ex:shared-redis-0.redis.namespace.svc.cluster.local
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis # serviceの名前
+  labels:
+    app: redis
+spec:
+  ports:
+  - port: 6379
+    name: redis # serviceの各portを識別
+  clusterIP: None
+  selector:
+    app: redis

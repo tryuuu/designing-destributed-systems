@@ -1,0 +1,23 @@
+# https://kubernetes.io/ja/docs/concepts/workloads/controllers/statefulset/
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis-shards
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  serviceName: redis # redis-0など、Podの名前に使われる
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: redis
+        image: redis
+        ports:
+        - containerPort: 6379
+          name: redis

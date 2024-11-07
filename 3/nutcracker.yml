@@ -1,0 +1,15 @@
+# https://wkubota.hatenablog.com/entry/2015/12/23/002933
+redis:
+  listen: 127.0.0.1:6379
+  hash: fnv1a_64
+  distribution: ketama
+  auto_eject_hosts: false
+  redis: true
+  timeout: 400
+  server_retry_timeout: 2000
+  server_failure_limit: 1
+  # これらのredisサーバーに分散させる(:1は重み)
+  servers:
+    - shared-redis-0.redis:6379:1
+    - shared-redis-1.redis:6379:1
+    - shared-redis-2.redis:6379:1
