@@ -16,7 +16,7 @@ spec:
         - "7"
         - "-s"
         - "6222"
-      volumeMounts:
+      volumeMounts: # volumeをマウント
         - name: config-volume
           mountPath: /etc/config # configmapは/etc/configにマウントされる
   # https://kubernetes.io/ja/docs/concepts/storage/volumes/

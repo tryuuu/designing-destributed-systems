@@ -1,4 +1,5 @@
 # https://wkubota.hatenablog.com/entry/2015/12/23/002933
+# kubectl create configmap twem-config --from-file=./nutcracker.yml
 redis:
   listen: 127.0.0.1:6379
   hash: fnv1a_64
